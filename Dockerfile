@@ -6,7 +6,7 @@ RUN apk add --no-cache tzdata
 ENV TZ=<time-zone> # e.g. "Europe/Brussels"
 RUN apk add --update --no-cache openssh 
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
-RUN adduser -h /home/emgv -s /bin/sh -D emgv
+RUN adduser -h /home/<username> -s /bin/sh -D <username>
 RUN echo -n '<username>:<yourpassword>' | chpasswd
 RUN echo '<username> ALL=(ALL) /bin/su' >>  /etc/sudoers
 ENTRYPOINT ["/entrypoint.sh"]
